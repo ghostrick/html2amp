@@ -15,6 +15,7 @@ const link = require('./lib/link/canonical')
 const preload = require('./lib/link/preload')
 const toolbox = require('./lib/toolbox')
 const html = require('./lib/html')
+const twitter = require('./lib/twitter')
 
 const html2amp = async (htmlString, options = {}) => {
   let $ = cheerio.load(htmlString)
@@ -28,6 +29,7 @@ const html2amp = async (htmlString, options = {}) => {
   $ = ga($, options)
   $ = iframe($, options)
   $ = link($)
+  $ = twitter($)
   $ = preload($)
   $ = serviceworker($, options)
   $ = boilerplate($, options)
